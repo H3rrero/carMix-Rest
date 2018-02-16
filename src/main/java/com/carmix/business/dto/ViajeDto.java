@@ -1,21 +1,10 @@
-package com.carmix.model;
+package com.carmix.business.dto;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+public class ViajeDto {
 
-@Entity
-@Table(name="viaje")
-public class Viaje {
-
-	@Id
-	@GeneratedValue
-	private Long id;
+private Long id;
 	
 	private String origen, destino, descripcion;
 	
@@ -23,8 +12,7 @@ public class Viaje {
 	
 	private BigDecimal precio;
 	
-//	@OneToMany(mappedBy="id.viaje")
-//	private List<UserViaje> users;
+	private String url;
 
 	public Long getId() {
 		return id;
@@ -74,13 +62,13 @@ public class Viaje {
 		this.precio = precio;
 	}
 
-//	public List<UserViaje> getUsers() {
-//		return users;
-//	}
-//
-//	public void setUsers(List<UserViaje> users) {
-//		this.users = users;
-//	}
+	public String getUrl() {
+		return url;
+	}
 
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	
 }
