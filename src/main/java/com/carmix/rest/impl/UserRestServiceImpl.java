@@ -23,11 +23,7 @@ public class UserRestServiceImpl implements UserRestService{
 	
 	@Override
 	public ResponseEntity<UserTokenDto> logIn(@RequestBody Usuario usuario) {
-		System.out.println(usuario.getUser());
-		System.out.println(usuario.getPassword());
-		
 		Usuario usuarioBD = userService.logIn(usuario);
-		System.out.println(usuarioBD);
 		UserTokenDto u = new UserTokenDto();
 		u.setToken("tokenGeneradoPorCarMix");
 		u.setId(usuarioBD.getId());
@@ -51,6 +47,12 @@ public class UserRestServiceImpl implements UserRestService{
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(viajes, HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<UserTokenDto> register(@RequestBody Usuario usuario) {
+		UserTokenDto dto = this.userService.register(usuario);
+		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 
 }

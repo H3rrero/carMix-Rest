@@ -1,19 +1,27 @@
 package com.carmix.business.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
+
+import com.carmix.model.Usuario;
 
 public class ViajeDto {
 
-private Long id;
-	
-	private String origen, destino, descripcion;
-	
-	private int plazas;
-	
-	private BigDecimal precio;
-	
-	private String url;
+	private Long id;
 
+	private Long creador;
+	private String origen, destino, descripcion;
+
+	private int plazas;
+
+	private BigDecimal precio;
+
+	private String url;
+	
+	private List<Usuario> usuarios;
+
+	private String lista;
+	
 	public Long getId() {
 		return id;
 	}
@@ -69,6 +77,30 @@ private Long id;
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
+
+	public Long getCreador() {
+		return creador;
+	}
+
+	public void setCreador(Long creador) {
+		this.creador = creador;
+	}
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public String getLista() {
+		return lista;
+	}
+
+	public void setLista(String lista) {
+		this.lista = lista;
+	}
+
 	
 }

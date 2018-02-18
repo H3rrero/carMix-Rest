@@ -18,6 +18,17 @@ public class UserViajeId implements Serializable {
 	@JoinColumn(name="FK_viaje_id")
 	private Viaje viaje;
 
+	public UserViajeId() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserViajeId(Usuario usuario, Viaje viaje) {
+		super();
+		this.usuario = usuario;
+		this.viaje = viaje;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}

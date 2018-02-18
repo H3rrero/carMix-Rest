@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.carmix.business.api.UserService;
+import com.carmix.business.dto.UserTokenDto;
 import com.carmix.business.dto.ViajeDto;
 import com.carmix.dao.api.UserRepository;
+import com.carmix.dao.api.ViajesRepository;
 import com.carmix.model.Usuario;
 import com.carmix.model.Viaje;
 
@@ -17,6 +19,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepository ur;
+	
+	@Autowired
+	ViajesRepository vr;
 
 	@Override
 	public Usuario logIn(Usuario usuario) {
@@ -43,12 +48,26 @@ public class UserServiceImpl implements UserService {
 				dto.setDescripcion(v.getDescripcion());
 				dto.setPlazas(v.getPlazas());
 				dto.setPrecio(dto.getPrecio());
+				
+				dto.setCreador(id);
 				dto.setUrl("/viajes/"+v.getId());
 				dtos.add(dto);
 			}
 			return dtos;
 		}
 		return null;
+	}
+
+	@Override
+	public UserTokenDto register(Usuario usuario) {
+		Usuario u = this.ur.save(usuario);
+		UserTokenDto dto = new UserTokenDto();
+		
+		dto.setId(u.getId());
+		dto.setToken("tokenCarMix");
+		dto.setUser(u.getUser());
+		
+		return dto;
 	}
 
 }

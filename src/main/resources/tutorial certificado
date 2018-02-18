@@ -1,0 +1,17 @@
+keytool -genkey -alias certificadoSW -keyalg RSA -dname "CN=Pablo, OU=Uniovi, O=Uniovi, L=Oviedo, ST=Spain, C=ES" -keystore C:\Users\Pablo\Desktop\certificadosSW\keyStoreSW.jks -ext SAN=ip:156.35.97.40
+
+keytool -export -alias certificadoSW -file C:\Users\Pablo\Desktop\certificadosSW\certificadoSW.cer -keystore C:\Users\Pablo\Desktop\certificadosSW\keyStoreSW.jks
+
+keytool -import -v -trustcacerts -alias certificadoSW -file C:\Users\Pablo\Desktop\certificadosSW\certificadoSW.cer -keystore C:\Users\Pablo\Desktop\certificadosSW\trustStoreSW.ts
+
+clave1234
+
+
+
+keytool -genkey -alias certificadoSWlocal -keyalg RSA -dname "CN=Pablo, OU=Uniovi, O=Uniovi, L=Oviedo, ST=Spain, C=ES" -keystore C:\Users\Pablo\Desktop\certificadosSW\keyStoreSWlocal.jks -ext SAN=dns:localhost
+
+keytool -export -alias certificadoSWlocal -file C:\Users\Pablo\Desktop\certificadosSW\certificadoSWlocal.cer -keystore C:\Users\Pablo\Desktop\certificadosSW\keyStoreSWlocal.jks
+
+keytool -import -v -trustcacerts -alias certificadoSWlocal -file C:\Users\Pablo\Desktop\certificadosSW\certificadoSWlocal.cer -keystore C:\Users\Pablo\Desktop\certificadosSW\trustStoreSWlocal.ts
+
+clave1234

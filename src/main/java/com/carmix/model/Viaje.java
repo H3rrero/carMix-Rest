@@ -2,6 +2,7 @@ package com.carmix.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,8 +20,10 @@ public class Viaje {
 	
 	private int plazas;
 	
+	@Column(name = "precio")
 	private BigDecimal precio;
 	
+	private String lista;
 //	@OneToMany(mappedBy="id.viaje")
 //	private List<Users> users;
 
@@ -70,6 +73,14 @@ public class Viaje {
 
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
+	}
+
+	public String getLista() {
+		return lista;
+	}
+
+	public void setLista(String lista) {
+		this.lista = lista;
 	}
 
 //	public List<UserViaje> getUsers() {

@@ -19,6 +19,9 @@ public interface UserRestService {
 	@RequestMapping(value = "/logIn", method = RequestMethod.POST,produces= MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<UserTokenDto> logIn(Usuario usuario);
 	
+	@RequestMapping(value = "/", method = RequestMethod.POST,produces= MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<UserTokenDto> register(Usuario usuario);
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<Usuario> getUsuario(Long id);
 	
