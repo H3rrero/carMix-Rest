@@ -155,7 +155,9 @@ public class ViajesServiceImpl implements ViajesService {
 	@Override
 	public ViajeDto actualizarViaje(ViajeDto dto) {
 		Viaje v = vr.findOne(dto.getId());
-		
+		if(v == null){
+			return null;
+		}
 		v.setOrigen(dto.getOrigen());
 		v.setDestino(dto.getDestino());
 		v.setPlazas(dto.getPlazas());
@@ -204,7 +206,7 @@ public class ViajesServiceImpl implements ViajesService {
 	}
 	@Override
 	@Transactional
-	public void eliminarViaje(Long id) {
+	public Viaje eliminarViaje(Long id) {
 		Viaje v = vr.findOne(id);
 		
 		if(v != null){
@@ -213,6 +215,10 @@ public class ViajesServiceImpl implements ViajesService {
 				uvr.delete(userViaje);
 			}
 			vr.delete(id);
+			return v;
+		}
+		else{
+			return null;
 		}
 		
 	}

@@ -3,6 +3,7 @@ package com.carmix.business.api;
 import java.util.List;
 
 import com.carmix.business.dto.ViajeDto;
+import com.carmix.model.Viaje;
 
 
 public interface ViajesService {
@@ -17,5 +18,5 @@ public interface ViajesService {
 
 	public ViajeDto actualizarViaje(ViajeDto dto);
 
-	public void eliminarViaje(Long id);
+	public Viaje eliminarViaje(Long id);
 }

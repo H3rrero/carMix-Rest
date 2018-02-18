@@ -25,8 +25,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Usuario logIn(Usuario usuario) {
-		Usuario usuarioDB = ur.logIn(usuario.getUser(), usuario.getPassword());
-		return usuarioDB;
+		List<Usuario> usuariosDB = ur.logIn(usuario.getUser(), usuario.getPassword());
+		if(usuariosDB == null || usuariosDB.isEmpty()){
+			return null;
+		}
+		return usuariosDB.get(0);
 	}
 
 	@Override
