@@ -202,5 +202,19 @@ public class ViajesServiceImpl implements ViajesService {
 		
 		return dto;
 	}
+	@Override
+	@Transactional
+	public void eliminarViaje(Long id) {
+		Viaje v = vr.findOne(id);
+		
+		if(v != null){
+			List<UserViaje> userViajes = uvr.getViaje(id);
+			for (UserViaje userViaje : userViajes) {
+				uvr.delete(userViaje);
+			}
+			vr.delete(id);
+		}
+		
+	}
 
 }

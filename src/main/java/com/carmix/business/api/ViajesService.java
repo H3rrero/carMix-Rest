@@ -16,4 +16,6 @@ public interface ViajesService {
 	public List<String> getDestinos();
 
 	public ViajeDto actualizarViaje(ViajeDto dto);
+
+	public void eliminarViaje(Long id);
 }

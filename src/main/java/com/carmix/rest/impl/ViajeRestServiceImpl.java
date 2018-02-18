@@ -50,4 +50,10 @@ public class ViajeRestServiceImpl implements ViajesRestService{
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	@Override
+	public ResponseEntity<ViajeDto> eliminarViaje(@PathVariable Long id) {
+		vs.eliminarViaje(id);
+		return null;
+	}
+
 }

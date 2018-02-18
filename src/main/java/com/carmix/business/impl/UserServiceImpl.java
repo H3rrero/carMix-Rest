@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 				dto.setDestino(v.getDestino());
 				dto.setDescripcion(v.getDescripcion());
 				dto.setPlazas(v.getPlazas());
-				dto.setPrecio(dto.getPrecio());
+				dto.setPrecio(v.getPrecio());
 				
 				dto.setCreador(id);
 				dto.setUrl("/viajes/"+v.getId());
