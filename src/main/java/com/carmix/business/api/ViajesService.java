@@ -19,4 +19,6 @@ public interface ViajesService {
 	public ViajeDto actualizarViaje(ViajeDto dto);
 
 	public Viaje eliminarViaje(Long id);
+
+	public byte[] getViajePDF(Long id);
 }

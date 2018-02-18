@@ -29,6 +29,9 @@ public interface ViajesRestService {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<ViajeDto> eliminarViaje(Long id);
 	
+	@RequestMapping(value = "/{id}/pdf", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<byte[]> getViajePDF(Long id);
+	
 	@RequestMapping(value = "/destinos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<List<String>> getDestino();
 	

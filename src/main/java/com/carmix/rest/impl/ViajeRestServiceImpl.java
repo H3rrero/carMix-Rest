@@ -80,4 +80,13 @@ public class ViajeRestServiceImpl implements ViajesRestService {
 		return null;
 	}
 
+	@Override
+	public ResponseEntity<byte[]> getViajePDF(@PathVariable Long id) {
+		byte[] pdf = vs.getViajePDF(id);
+		if(pdf == null){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<byte[]>(pdf, HttpStatus.OK);
+	}
+
 }
